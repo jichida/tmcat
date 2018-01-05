@@ -2,12 +2,12 @@ let DBModels = require('../db/models.js');
 let path = require('path');
 var fs = require('fs');
 const config = require('../config.js');
-let middlewareauth = require('./middlewareauth.js');
+// let middlewareauth = require('./middlewareauth.js');
 let formidable = require('formidable');
 let util = require('util');
 
 let startuploader = (app)=>{
-  app.post('/upload',middlewareauth,(req,res)=>{
+  app.post('/upload',(req,res)=>{
     console.log("userid:" + req.userid);
     // let data = req.body;
     // data.userid = req.userid;
