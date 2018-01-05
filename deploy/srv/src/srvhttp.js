@@ -11,9 +11,6 @@ const uuid = require('uuid');
 const _  = require('lodash');
 
 let startsrv = ()=>{
-  let apprdir = path.join(__dirname,config.publishdirapp);
-  console.log("static rider:" + apprdir);
-  app.use('/app', express.static(apprdir));
 
   let admindir = path.join(__dirname,config.publishdiradmin);
   console.log("static admin:" + admindir);

@@ -17,3 +17,4 @@ mongoose.connect(config.mongodburl,{
 
 console.log(`rooturl:${config.rooturl}`);
 console.log(`issmsdebug:${config.issmsdebug}`);
+srvhttp.startsrv();
