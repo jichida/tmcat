@@ -29,6 +29,11 @@ let startsrv = ()=>{
   app.use(config.uploadurl, express.static(uploaddir));
 
 
+  const publicdir = path.join(__dirname,config.publicdir);
+  mkdirp.sync(publicdir);
+  console.log("static publicdir:" + publicdir);
+  app.use(config.publicurl, express.static(publicdir));
+
 
   console.log('uploadurl:' + config.uploadurl);
   console.log('uploaddir:' + uploaddir);

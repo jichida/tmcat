@@ -1,17 +1,28 @@
-let mongoose     = require('mongoose');
-let Schema       = mongoose.Schema;
-let mongoosePaginate = require('mongoose-paginate');
+const mongoose     = require('mongoose');
+const Schema       = mongoose.Schema;
+const mongoosePaginate = require('mongoose-paginate');
 const config = require('../config.js');
 const moment = require('moment');
 
 mongoose.Promise = global.Promise;
-//系统设置
+//用户
 let UserSchema = new Schema({
   name:String,
   phone:String,
   avatar:String
 });
 UserSchema.plugin(mongoosePaginate);
-let UserModel  = mongoose.model('user',  UserSchema);
+const UserModel  = mongoose.model('user',  UserSchema);
+
+//职位对照
+let GameDescSchema = new Schema({
+  pid:Number,
+  title:String,
+  desc:String
+});
+GameDescSchema.plugin(mongoosePaginate);
+const GameDescModel  = mongoose.model('gamedesc',  GameDescSchema);
+
 
 exports.UserModel = UserModel;
+exports.GameDescModel = GameDescModel;

@@ -1,7 +1,8 @@
 const srvhttp = require('./src/srvhttp.js');
-
 const config = require('./src/config');
 const mongoose     = require('mongoose');
+const dbinit = require('./src/db/dbinit');
+
 mongoose.Promise = global.Promise;
 mongoose.connect(config.mongodburl,{
     socketOptions: {
@@ -17,4 +18,5 @@ mongoose.connect(config.mongodburl,{
 
 console.log(`rooturl:${config.rooturl}`);
 console.log(`issmsdebug:${config.issmsdebug}`);
+dbinit();
 srvhttp.startsrv();

@@ -1,6 +1,22 @@
+const getuploadfile = require('../handler/uploadfile');
+
 const startapi = (app)=>{
-  app.get('/', (req, res)=> {
-    	res.render('index', { title: 'Express' });
+  //获取轨迹回放数据
+  app.post('/api/insertuser',(req,res)=>{
+    const actiondata = req.body;
+    console.log(actiondata);
+
+    getuploadfile(req,(err,result)=>{
+
+    });
+    // historytrack.queryhistorytrack(actiondata,{},(result)=>{
+    //   if(result.cmd === 'queryhistorytrack_result'){
+    //     res.status(200).json({list:result.payload.list});
+    //   }
+    //   else{
+    //     res.status(200).json({list:[]});
+    //   }
+    // });
   });
 };
 

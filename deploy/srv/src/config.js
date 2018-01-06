@@ -8,8 +8,11 @@ const config =  {
   uploaddir:'../../dist/uploader',
   uploadurl:'/uploader',
   logdir:'../../dist/log',
+  
+  publicdir:'../../dist/public',
+  publicurl:'/public',
     // ...
-  mongodburl:process.env.MONGO_URL || `mongodb://localhost/zhongnandb`,
+  mongodburl:process.env.MONGO_URL || `mongodb://localhost/tmcat`,
 
 };
 
