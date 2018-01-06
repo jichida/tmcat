@@ -1,4 +1,5 @@
 const getuploadfile = require('../handler/uploadfile');
+const getresult = require('../handler/getresult');
 
 const startapi = (app)=>{
   //获取轨迹回放数据
@@ -6,17 +7,23 @@ const startapi = (app)=>{
     const actiondata = req.body;
     console.log(actiondata);
 
-    getuploadfile(req,(err,result)=>{
-      console.log(`getresult===>${JSON.stringify(result)}`);
+    getuploadfile(req,(err,userobj)=>{
+      if(!err && !!userobj){
+        getresult(userobj,(err,result)=>{
+          if(!err && !!result){
+            console.log(result);
+            //发送结果页面
+          }
+          else{
+            //send error
+          }
+        });
+      }
+      else{
+        //send error
+      }
     });
-    // historytrack.queryhistorytrack(actiondata,{},(result)=>{
-    //   if(result.cmd === 'queryhistorytrack_result'){
-    //     res.status(200).json({list:result.payload.list});
-    //   }
-    //   else{
-    //     res.status(200).json({list:[]});
-    //   }
-    // });
+
   });
 };
 
