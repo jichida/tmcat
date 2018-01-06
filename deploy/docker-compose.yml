@@ -38,3 +38,4 @@ services:
        - "/var/db100/dbdata:/data/db -d"
     ports:
        - "27017:27017"
+    command: mongod --auth
