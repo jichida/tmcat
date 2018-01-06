@@ -3,6 +3,8 @@ services:
   nginx:
       image: nginx
       restart: always
+      expose:
+         - "80"
       ports:
           - "80:8090"
       volumes:
