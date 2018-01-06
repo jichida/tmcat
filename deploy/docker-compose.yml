@@ -18,6 +18,7 @@ services:
     volumes:
       - ./srv:/app
       - ./dist/log:/dist/log
+    network_mode: "host"
     environment:
       - MONGO_URL=mongodb://127.0.0.1/tmcat
       - listenport=3005
