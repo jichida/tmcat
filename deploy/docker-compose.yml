@@ -22,8 +22,6 @@ services:
     environment:
       - MONGO_URL=mongodb://127.0.0.1/tmcat
       - listenport=3005
-    links:
-      - mongodb
     ports:
        - "3005:3005"
     expose:
