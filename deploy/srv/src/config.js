@@ -1,7 +1,7 @@
 
 const config =  {
   listenport:process.env.listenport||3005,
-  rooturl:process.env.rooturl || 'http://localhost:3005',
+  rooturl:process.env.rooturl || 'http://tmcat.czjcd.com',
   issmsdebug:process.env.issmsdebug || false,
 
   publishdiradmin:'../../dist/admin',

@@ -31,8 +31,8 @@ services:
     image:  mongo:3.4
     restart: always
     expose:
-       - "27018"
+       - "27017"
     volumes:
        - "/var/db100/dbdata:/data/db -d"
     ports:
-       - "27018:27017"
+       - "27017:27017"
