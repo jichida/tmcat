@@ -9,14 +9,19 @@ const routerindex = require("./router/index.js");
 const upload = require('jquery-file-upload-middleware');
 const uuid = require('uuid');
 const _  = require('lodash');
+const expressLayouts = require('express-ejs-layouts');
 
 let startsrv = ()=>{
 
-  let admindir = path.join(__dirname,config.publishdiradmin);
+  app.engine('.html', require('ejs').__express);
+  app.set('view engine', 'html');
+  app.use(expressLayouts);
+
+  const admindir = path.join(__dirname,config.publishdiradmin);
   console.log("static admin:" + admindir);
   app.use('/admin', express.static(admindir));
 
-  let uploaddir = path.join(__dirname,config.uploaddir);
+  const uploaddir = path.join(__dirname,config.uploaddir);
   console.log("static upload:" + uploaddir);
   app.use(config.uploadurl, express.static(uploaddir));
 

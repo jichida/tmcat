@@ -1,0 +1,15 @@
+<div>
+    <h1>ssssss</h1>
+    <p id="btn">bbssss</p>
+</div>
+<script type="text/javascript">
+	window.onload = function(){
+		var btn = document.getElementById("btn");
+		btn.addEventListener("click", function(){
+			var xmlhttp=new XMLHttpRequest();
+			xmlhttp.open("POST","http://localhost:3000/users",true);
+			xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			xmlhttp.send("username=Henry&userpwd=Ford");
+		});
+	}
+</script>
