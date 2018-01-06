@@ -1,8 +1,8 @@
 <div>
     <h1>ssssss</h1>
     <div>
-    	<form action="/postdata" method="post" accept-charset="utf-8">
-    		<input type="file" />
+    	<form action="/api/insertuser" enctype="multipart/form-data" method="post" accept-charset="utf-8">
+    		<input type="file" name="upload" multiple="multiple"/>
     		<p><input type="text" name="name" placeholder="姓名" /><p>
     		<p><input type="text" name="phone" placeholder="电话" /><p>
     		<button type="submit">预测</button>

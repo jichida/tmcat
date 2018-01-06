@@ -7,28 +7,26 @@ const util = require('util');
 const getuploadfile = (req,callbackfn)=>{
   const form = new formidable.IncomingForm();
   form.uploadDir = path.join(__dirname,'../',config.uploaddir);
+  let result = {};
+  form.on('error', (err)=> {
+         callbackfn(err,null);
+       })
+       .on('field', function(field, value) {
+         result[field] = value;
+       })
+       .on('file', function(field, file) {
+           let basename = path.basename(file.path);
+           let extname = path.extname(file['name']);
+           let filename = `${basename}${extname}`;
 
-  form.parse(req, (err, fields, files)=> {
-    console.log('file name:' + util.inspect({fields: fields, files: files}));
-    console.log('file name:' + files['file'].path);
-    let basename = path.basename(files['file'].path);
-    let extname = path.extname(fields['filename']);
-    let filename = basename + extname;
-    fs.rename(files['file'].path,files['file'].path+extname,(err)=>{
-      if(!!err){
-        callbackfn(err,null);
-      }
-      else{
-        callbackfn(null,{url:`${config.uploadurl}/${filename}`});
-      }
-    });
-
-  });
-
-  form.on('progress', (bytesReceived, bytesExpected)=> {
-    console.log('已接受:' + bytesReceived);
-    console.log('一共:' + bytesExpected);
-  });
+           fs.rename(`${file.path}`,`${file.path}${extname}`,(err)=>{
+           });
+           result['avatar'] = `${config.uploadurl}/${filename}`;
+        })
+       .on('end', function() {
+         callbackfn(null,result);
+       });
+  form.parse(req);
 };
 
 module.exports= getuploadfile;

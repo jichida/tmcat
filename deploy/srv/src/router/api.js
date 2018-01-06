@@ -7,7 +7,7 @@ const startapi = (app)=>{
     console.log(actiondata);
 
     getuploadfile(req,(err,result)=>{
-
+      console.log(`getresult===>${JSON.stringify(result)}`);
     });
     // historytrack.queryhistorytrack(actiondata,{},(result)=>{
     //   if(result.cmd === 'queryhistorytrack_result'){
