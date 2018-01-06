@@ -10,6 +10,7 @@ const upload = require('jquery-file-upload-middleware');
 const uuid = require('uuid');
 const _  = require('lodash');
 const expressLayouts = require('express-ejs-layouts');
+const mkdirp = require('mkdirp');
 
 let startsrv = ()=>{
 
@@ -18,12 +19,15 @@ let startsrv = ()=>{
   app.use(expressLayouts);
 
   const admindir = path.join(__dirname,config.publishdiradmin);
+  mkdirp.sync(admindir);
   console.log("static admin:" + admindir);
   app.use('/admin', express.static(admindir));
 
   const uploaddir = path.join(__dirname,config.uploaddir);
+  mkdirp.sync(uploaddir);
   console.log("static upload:" + uploaddir);
   app.use(config.uploadurl, express.static(uploaddir));
+
 
 
   console.log('uploadurl:' + config.uploadurl);

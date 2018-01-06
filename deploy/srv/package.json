@@ -16,6 +16,7 @@
     "formidable": "^1.1.1",
     "jquery-file-upload-middleware": "^0.1.8",
     "lodash": "^4.17.4",
+    "mkdir": "0.0.2",
     "moment": "^2.20.1",
     "mongoose": "^5.0.0-rc2",
     "mongoose-paginate": "^5.0.3",

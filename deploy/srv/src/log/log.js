@@ -1,20 +1,23 @@
-var winston = require('winston');
-var moment = require('moment');
-var path = require('path');
+const winston = require('winston');
+const moment = require('moment');
+const path = require('path');
 const config = require('../config.js');
-var logger;
+const mkdirp = require('mkdirp');
+let logger;
 exports.initLog =  ()=>{
-  var filename = "app_"+moment().format('YYYY-MM-DD-HHmmss');
+  const filename = "app_"+moment().format('YYYY-MM-DD-HHmmss');
+  const logdir = path.resolve(__dirname,'../');
+  console.log(`logdir==>${logdir}`);
+  mkdirp.sync(logdir);
 
-  var logfile = `${config.logdir}/${filename}.log`;
-  var logpath = path.resolve(__dirname,'../', logfile);
-  console.log(`logpath==>${logpath}`);
+  const logfile = `${config.logdir}/${filename}.log`;
+  const logpath = path.resolve(__dirname,'../', logfile);
 
-  var logfileerr = `${config.logdir}/${filename}_err.log`;
-  var logpatherr = path.resolve(__dirname,'../', logfileerr);
+  const logfileerr = `${config.logdir}/${filename}_err.log`;
+  const logpatherr = path.resolve(__dirname,'../', logfileerr);
 
-  var logfilewarn = `${config.logdir}/${filename}_warn.log`;
-  var logpathwarn = path.resolve(__dirname,'../', logfilewarn);
+  const logfilewarn = `${config.logdir}/${filename}_warn.log`;
+  const logpathwarn = path.resolve(__dirname,'../', logfilewarn);
 
   // winston.configure({
   //   transports: [
