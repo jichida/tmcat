@@ -16,7 +16,7 @@ mongoose.connect(config.mongodburl,{
     reconnectTries: Number.MAX_VALUE
   })
 
-console.log(`rooturl:${config.rooturl}`);
-console.log(`issmsdebug:${config.issmsdebug}`);
+// console.log(`rooturl:${config.rooturl}`);
+// console.log(`issmsdebug:${config.issmsdebug}`);
 dbinit();
 srvhttp.startsrv();

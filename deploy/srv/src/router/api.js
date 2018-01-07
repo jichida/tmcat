@@ -1,23 +1,14 @@
-const getuploadfile = require('../handler/uploadfile');
+
+const downloadexcel = require('../handler/downloadexcel');
+const insertuser = require('../handler/insertuser');
 
 const startapi = (app)=>{
-  //获取轨迹回放数据
-  app.post('/api/insertuser',(req,res)=>{
-    const actiondata = req.body;
-    console.log(actiondata);
+  app.post('/api/insertuser',insertuser);
+  app.get('/api/downloadexcel',downloadexcel);
+  //for nginx
+  app.post('/insertuser',insertuser);
+  app.get('/downloadexcel',downloadexcel);
 
-    getuploadfile(req,(err,result)=>{
-
-    });
-    // historytrack.queryhistorytrack(actiondata,{},(result)=>{
-    //   if(result.cmd === 'queryhistorytrack_result'){
-    //     res.status(200).json({list:result.payload.list});
-    //   }
-    //   else{
-    //     res.status(200).json({list:[]});
-    //   }
-    // });
-  });
 };
 
 
