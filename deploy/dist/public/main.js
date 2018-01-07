@@ -10,7 +10,7 @@
 })(function ($) {
     'use strict';
     $(function(){
-        $("#crop-avatar").css("min-height",window.innerHeight+"px");
+        $("#crop-avatar").css("min-height",window.innerHeight-55+"px");
         var thisimg = null
         var avatarInput = $("#avatarInput");
         var avatarWrapper = $("#avatar-wrapper");

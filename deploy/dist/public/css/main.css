@@ -57,6 +57,9 @@
     padding-top: 15px;
     padding-bottom: 15px;
     color: #FFF;
+    position: relative;
+    z-index: 3;
+    background: rgba(0,0,0,.3);
 }
 .page{
     flex-grow: 1;
@@ -208,16 +211,179 @@
     -webkit-box-align: center;
     align-items: center;
     -webkit-align-items: center;
-    padding-bottom: 40px;
+    margin-top: 30px;
+    background: rgba(255,255,255,.7);
+    padding: 10px 0;
+    border-radius: 6px;
+    color: #000;
 }
-.maintitle img{
+.maintitle div{
     width: 33%;
-    margin-right: 20px;
+    margin: 0 20px;
+    background: #FFF;
+}
+.maintitle div>img{
+    width: 100%;
 }
 .maintitle span{
     font-size: 22px;
     text-align: left;
-    color: #FFF;
+    margin-right: 30px;
+}
+.infopage{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-align-items: center;
+    -moz-justify-content: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    flex-grow: 1;
+    -moz-box-direction:normal;
+    flex-direction:column;
+    -webkit-flex-direction:column;
+    padding:0 30px;
+}
+.infopage .infocontwamp{
+    width: 100%;
+    background:#FFF;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    position: relative;
+}
+.infopage .infocont{
+    width: 100%;
+    background:#FFF;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+}
+.infopage .infocontwamp .infotitle{
+    padding: 20px 0;
+    font-size: 20px;
+}
+.infopage .infocontwamp .infotitle span{
+    display: block;
+    font-weight: bold;
+    font-size: 24px;
+}
+.infopage .infocont #useravatar{
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    height: 130px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-align-items: center;
+    -moz-justify-content: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+.infopage .infocont #useravatar>img{
+    position: absolute;
+    width: 130px;
+    border-radius: 1000px;
+}
+.infopage .infobottom{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-align-items: center;
+    -moz-justify-content: space-around;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+}
+.infopage .infobottom >img{
+    width: 23%;
+    flex-shrink: 0;
+}
+.infopage .infobottom span{
+    display: inline-block;
+    background: #8fdeff;
+    border-radius: 100px;
+    flex-grow: 1px;
+    margin:0 0 0 30px;
+    text-align: center;
+}
+.infopage .infobottom span >img{
+    width: 50%;
+}
+.head .back{
+    position: relative;
+}
+.head .back img{
+    width: 24px;
+}
+.head a.back {
+    position: absolute;
+    left: 0;
+    display: block;
+    top: 0;
+    height: 56px;
+    width: 56px;
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-align-items: center;
+    -moz-justify-content: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+.infohead{
+    position: relative;
+    width: 100%;
+    background: rgba(0,0,0,.3);
+    z-index: 1001;
+}
+#avatarbg{
+    width: 230px;
+}
+.infotitle{
+    font-size: 18px;
+    
+}
+.jobinfo{
+    padding: 20px 0;
+
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-align-items: center;
+    -moz-justify-content: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -moz-box-direction:normal;
+    flex-direction:column;
+    -webkit-flex-direction:column;
+}
+.jobinfo .job{
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.jobinfo .xinge{
+    font-size:13px;
+    font-family: "Microsoft YaHei";
+    display: block;
+    margin:0 15%;
 }
 
 

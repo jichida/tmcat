@@ -16,6 +16,7 @@ const insertuser = (req,res)=>{
             //   title: '艺术总监CAO',
             //   desc: '有个性的你在人群中总是闪闪发亮，脑洞大开富有想象力，人格魅力不可阻挡，未来的SuperStar就是你。'
             // }
+            res.render('info',result); 
 
           }
           else{
