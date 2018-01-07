@@ -20,39 +20,54 @@
         var avatarclick = $("#avatarclick");
         var avatarData = $('.avatar-data');
         var submitbtn = $("#submitbtn");
+        var uploadeddata;
         // var imageData = $().cropper('getImageData');
 
         var url = '';
 
         submitbtn.click(function(){
-            console.log(thisimg.cropper('getCroppedCanvas'));
-            thisimg.cropper('getCroppedCanvas').toBlob(function (blob) {
-                console.log(blob);
-                // var formData = new FormData();
-                // formData.append('croppedImage', blob);
-                // formData.append('name', 'wxq');
-                // formData.append('phone', '15961125167');
+            // console.log(thisimg.cropper('getCroppedCanvas'));
 
-                // $.ajax('/api/insertuser', {
-                //     method: "POST",
-                //     data: formData,
-                //     processData: false,
-                //     contentType: false,
-                //     success: function () {
-                //         console.log('Upload success');
-                //     },
-                //     error: function () {
-                //         console.log('Upload error');
-                //     }
-                // });
-            });
+            // var croppng = thisimg.cropper('getCroppedCanvas').toDataURL("image/png");
+            $.ajax({
+                type: 'POST',
+                url: '/api/insertuser',
+                data: {
+                  pngimageData: uploadeddata,
+                  name:'wxq',
+                  phone:'15961125167'
+                },
+                success: function(output) {
+                }
+            })
+            // thisimg.cropper('getCroppedCanvas').toBlob(function (blob) {
+            //     console.log(blob);
+            //     // var formData = new FormData();
+            //     // formData.append('croppedImage', blob);
+            //     // formData.append('name', 'wxq');
+            //     // formData.append('phone', '15961125167');
+            //
+            //     // $.ajax('/api/insertuser', {
+            //     //     method: "POST",
+            //     //     data: formData,
+            //     //     processData: false,
+            //     //     contentType: false,
+            //     //     success: function () {
+            //     //         console.log('Upload success');
+            //     //     },
+            //     //     error: function () {
+            //     //         console.log('Upload error');
+            //     //     }
+            //     // });
+            // });
         })
 
         cropperbtn.click(function(){
             if(!!thisimg){
                 var imgdata = thisimg.cropper("getImageData");
-                var canvasData = thisimg.cropper("getCanvasData");                
+                var canvasData = thisimg.cropper("getCanvasData");
                 var croppedCanvas = thisimg.cropper('getCroppedCanvas').toDataURL("image/png");
+                uploadeddata = croppedCanvas;
                 avatarclick.attr("src", croppedCanvas);
                 avatarData.val(avatarData);
                 avatarWrapper.html("点击上传图片");
@@ -63,7 +78,7 @@
                 thisimg.remove();
             }
         })
-        
+
         avatarclick.click(function(){
             showmodal();
         })
@@ -75,7 +90,7 @@
         avatarInput.change(function(e){
             console.log(e);
             inputchange();
-        })  
+        })
 
         function showmodal(){
             $("#avatar-modal").modal('show');
