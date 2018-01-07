@@ -30,17 +30,17 @@
                 avatarclick.attr("src", croppedCanvas);
                 // console.log(canvasData);
                 // console.log(croppedCanvas);
-                // avatarWrapper.html("点击上传图片");
-                // resetupload.hide();
-                // hidemodal();
+                avatarWrapper.html("点击上传图片");
+                resetupload.hide();
+                hidemodal();
                 
                 // console.log(croppedCanvas);
                 // avatarurl.html(croppedCanvas);
                 // var imgdata = avatarurl.toDataURL();
                 // console.log(imgdata);
-                // cropperimg.cropper("clear");
-                // cropperimg.cropper('destroy');
-                // cropperimg.remove();
+                cropperimg.cropper("clear");
+                cropperimg.cropper('destroy');
+                cropperimg.remove();
             }
         })
         
