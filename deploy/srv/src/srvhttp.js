@@ -38,8 +38,8 @@ let startsrv = ()=>{
   console.log('uploadurl:' + config.uploadurl);
   console.log('uploaddir:' + uploaddir);
 
-  app.use(bodyParser.urlencoded({ extended: true }));
-  app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+  app.use(bodyParser.json({limit: '50mb'}));
 
   app.use((req, res, next)=> {
       console.log('req.url:' + req.url);

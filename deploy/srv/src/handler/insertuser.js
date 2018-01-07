@@ -1,11 +1,9 @@
-const getuploadfile = require('../handler/uploadfile');
+const getbase64file = require('../handler/getbase64file');
 const getresult = require('../handler/getresult');
 
 const insertuser = (req,res)=>{
-    const actiondata = req.body;
-    console.log(actiondata);
 
-    getuploadfile(req,(err,userobj)=>{
+    getbase64file(req,(err,userobj)=>{
       if(!err && !!userobj){
         getresult(userobj,(err,result)=>{
           if(!err && !!result){
