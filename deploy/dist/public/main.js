@@ -19,9 +19,34 @@
         var avatarurl = $("#avatar-url");
         var avatarclick = $("#avatarclick");
         var avatarData = $('.avatar-data');
+        var submitbtn = $("#submitbtn");
         // var imageData = $().cropper('getImageData');
 
         var url = '';
+
+        submitbtn.click(function(){
+            console.log(thisimg.cropper('getCroppedCanvas'));
+            thisimg.cropper('getCroppedCanvas').toBlob(function (blob) {
+                console.log(blob);
+                // var formData = new FormData();
+                // formData.append('croppedImage', blob);
+                // formData.append('name', 'wxq');
+                // formData.append('phone', '15961125167');
+
+                // $.ajax('/api/insertuser', {
+                //     method: "POST",
+                //     data: formData,
+                //     processData: false,
+                //     contentType: false,
+                //     success: function () {
+                //         console.log('Upload success');
+                //     },
+                //     error: function () {
+                //         console.log('Upload error');
+                //     }
+                // });
+            });
+        })
 
         cropperbtn.click(function(){
             if(!!thisimg){
