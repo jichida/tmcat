@@ -146,8 +146,8 @@
             avatarWrapper.css("z-index", 200);
             resetupload.show();
             thisimg.cropper({
-                rotatable: false,
-                scalable:false,
+                rotatable: true,
+                scalable:true,
                 checkOrientation: true,
                 aspectRatio: 1,
                 strict: false,
