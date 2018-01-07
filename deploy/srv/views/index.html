@@ -11,11 +11,11 @@
                 <img src="/public/img/1.jpg" />
                 <span>让猫老祖看看未来的你吧</span>
             </div>
-            <form>
+            <form action="/api/insertuser" enctype="multipart/form-data" method="post" accept-charset="utf-8">
                 <input class="avatar-data" name="avatar_data" type="hidden" />
                 <div class="avatarcontent"><img src="/public/img/camera.png" id="avatarclick" /></div>
-                <div><input name="name" placeholder="姓名" /></div>
-                <div><input name="phone" placeholder="电话" /></div>
+                <div><input name="name" placeholder="姓名" type="text" /></div>
+                <div><input name="phone" placeholder="电话" type="number" /></div>
                 <div>留下您的联系方式，编程猫给您送上新年语音祝福</div>
                 <div class="btns"><button type="submit">开启时光门</button></div>
             </form>

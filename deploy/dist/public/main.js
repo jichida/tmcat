@@ -10,6 +10,7 @@
 })(function ($) {
     'use strict';
     $(function(){
+        $("#crop-avatar").css("min-height",window.innerHeight+"px");
         var thisimg = null
         var avatarInput = $("#avatarInput");
         var avatarWrapper = $("#avatar-wrapper");
@@ -28,19 +29,13 @@
                 var canvasData = thisimg.cropper("getCanvasData");                
                 var croppedCanvas = thisimg.cropper('getCroppedCanvas').toDataURL("image/png");
                 avatarclick.attr("src", croppedCanvas);
-                // console.log(canvasData);
-                // console.log(croppedCanvas);
+                avatarData.val(avatarData);
                 avatarWrapper.html("点击上传图片");
                 resetupload.hide();
                 hidemodal();
-                
-                // console.log(croppedCanvas);
-                // avatarurl.html(croppedCanvas);
-                // var imgdata = avatarurl.toDataURL();
-                // console.log(imgdata);
-                cropperimg.cropper("clear");
-                cropperimg.cropper('destroy');
-                cropperimg.remove();
+                thisimg.cropper("clear");
+                thisimg.cropper('destroy');
+                thisimg.remove();
             }
         })
         
@@ -77,9 +72,6 @@
                 if (files.length > 0) {
                     file = files[0];
                     if (isImageFile(file)) {
-                        // if (this.url) {
-                        //     URL.revokeObjectURL(this.url); // Revoke the old one
-                        // }
                         url = URL.createObjectURL(file);
                         startCropper();
                     }
@@ -132,18 +124,5 @@
                 },
             });
         }
-
-
-        function getBase64Image(img) {  
-            var canvas = document.createElement("canvas");  
-            canvas.width = img.width;  
-            canvas.height = img.height;  
-            var ctx = canvas.getContext("2d");  
-            ctx.drawImage(img, 0, 0, img.width, img.height);  
-            var ext = img.src.substring(img.src.lastIndexOf(".")+1).toLowerCase();  
-            var dataURL = canvas.toDataURL("image/"+ext);  
-            return dataURL;  
-        }  
     })
-
 });
