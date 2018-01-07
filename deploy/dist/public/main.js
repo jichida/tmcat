@@ -146,13 +146,14 @@
             avatarWrapper.css("z-index", 200);
             resetupload.show();
             thisimg.cropper({
+                rotatable: true,
+                checkOrientation: true,
                 aspectRatio: 1,
                 strict: false,
                 guides: false,
                 dragCrop: false,
                 movable: false,
                 resizable: false,
-                rotatable: false,
                 modal : true,
                 background : false,
                 crop: function (data) {
