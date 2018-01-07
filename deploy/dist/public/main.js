@@ -12,6 +12,8 @@
     $(function(){
         $("#crop-avatar").css("min-height",window.innerHeight-55+"px");
         var thisimg = null
+        var inputname = $("input[name='name']");
+        var inputphone = $("input[name='phone']");
         var avatarInput = $("#avatarInput");
         var avatarWrapper = $("#avatar-wrapper");
         var resetupload = $("#resetupload");
@@ -34,8 +36,8 @@
                 url: '/api/insertuser',
                 data: {
                   pngimageData: uploadeddata,
-                  name:'wxq',
-                  phone:'15961125167'
+                  name:inputname.val(),
+                  phone:inputphone.val()
                 },
                 success: function(output) {
                 }
@@ -66,13 +68,17 @@
             if(!!thisimg){
                 var imgdata = thisimg.cropper("getImageData");
                 var canvasData = thisimg.cropper("getCanvasData");
+                thisimg.cropper('rotate', 90);
                 var croppedCanvas = thisimg.cropper('getCroppedCanvas').toDataURL("image/png");
+
                 uploadeddata = croppedCanvas;
                 avatarclick.attr("src", croppedCanvas);
                 avatarData.val(avatarData);
                 avatarWrapper.html("点击上传图片");
                 resetupload.hide();
                 hidemodal();
+                avatarInput.val('');
+                avatarWrapper.css("z-index", 99);
                 thisimg.cropper("clear");
                 thisimg.cropper('destroy');
                 thisimg.remove();
