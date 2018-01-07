@@ -71,7 +71,7 @@
                 var imgdata = thisimg.cropper("getImageData");
                 var canvasData = thisimg.cropper("getCanvasData");
                 // thisimg.cropper('rotate', 90);
-                var croppedCanvas = thisimg.cropper('getCroppedCanvas').toDataURL("image/png");
+                var croppedCanvas = thisimg.cropper('getCroppedCanvas', { width: 140, height: 140}).toDataURL("image/png");
 
                 uploadeddata = croppedCanvas;
                 avatarclick.attr("src", croppedCanvas);
@@ -146,8 +146,8 @@
             avatarWrapper.css("z-index", 200);
             resetupload.show();
             thisimg.cropper({
-                rotatable: true,
-                scalable:true,
+                rotatable: false,
+                scalable:false,
                 checkOrientation: true,
                 aspectRatio: 1,
                 strict: false,
