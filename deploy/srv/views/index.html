@@ -1,22 +1,51 @@
-<div>
-    <h1>ssssss</h1>
-    <div>
-    	<form action="/postdata" method="post" accept-charset="utf-8">
-    		<input type="file" />
-    		<p><input type="text" name="name" placeholder="姓名" /><p>
-    		<p><input type="text" name="phone" placeholder="电话" /><p>
-    		<button type="submit">预测</button>
-    	</form>
+<link href="/public/assets/css/bootstrap.min.css" rel="stylesheet">
+<link href="/public/dist/cropper.min.css" rel="stylesheet">
+<link href="/public/css/main.css" rel="stylesheet">
+<img src="/public/img/bg.jpg" id="pageBg" />
+<div class="container" id="crop-avatar">
+    
+    <div class="apppage">
+        <div class="head"><span>猫老祖智能AI预测</span></div>
+        <div class="page">
+            <div class="maintitle">
+                <img src="/public/img/1.jpg" />
+                <span>让猫老祖看看未来的你吧</span>
+            </div>
+            <form>
+                <input class="avatar-data" name="avatar_data" type="text">
+                <div class="avatarcontent"><img src="/public/img/camera.png" id="avatarclick" /></div>
+                <div><input name="name" placeholder="姓名" /></div>
+                <div><input name="phone" placeholder="电话" /></div>
+                <div>留下您的联系方式，编程猫给您送上新年语音祝福</div>
+                <div class="btns"><button type="submit">开启时光门</button></div>
+            </form>
+        </div>
+        <div class="modal fade" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal" type="button">&times;</button>
+                        <h4 class="modal-title" id="avatar-modal-label">上传头像</h4>
+                    </div>
+                    <div class="modal-body">
+                        <input class="avatar-input" id="avatarInput" name="avatar_file" type="file" />
+                        <div id="avatar-wrapper">点击上传图片</div>
+                        <div id="avatar-url"></div>
+                        <div class="cropperbottombtn"><span id="resetupload">重新上传</span><span id="cropperbtn">确定</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="loading" aria-label="Loading" role="img" tabindex="-1"></div>
     </div>
+
 </div>
-<script type="text/javascript">
-	window.onload = function(){
-		var btn = document.getElementById("btn");
-		btn.addEventListener("click", function(){
-			var xmlhttp=new XMLHttpRequest();
-			xmlhttp.open("POST","http://localhost:3000/users",true);
-			xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-			xmlhttp.send("username=Henry&userpwd=Ford");
-		});
-	}
-</script>
+<script src="/public/assets/js/jquery.min.js"></script>
+<script src="/public/assets/js/bootstrap.min.js"></script>
+<script src="/public/dist/cropper.js"></script>
+<script src="/public/main.js"></script>
+
+
+
+
