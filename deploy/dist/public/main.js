@@ -38,6 +38,8 @@
                   phone:'15961125167'
                 },
                 success: function(output) {
+                  // alert(JSON.stringify(output));
+                  window.location = `/info/${output._id}`;
                 }
             })
             // thisimg.cropper('getCroppedCanvas').toBlob(function (blob) {
