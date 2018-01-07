@@ -7,18 +7,18 @@
     <span>猫老祖智能AI预测</span>
 </div>
 <div class="container" id="crop-avatar">
-    
+
     <div class="infopage" id="infopage">
 
         <div class="infocontwamp">
-            <div class="infotitle">二十年后的<span><% name %></span>将成为一个</div>
+            <div class="infotitle">二十年后的<span><%= name %></span>将成为一个</div>
             <div class="infocont">
-                <div id="useravatar"><img src="{avatar}"  /></div>
+                <div id="useravatar"><img src="<%= avatar %>"  /></div>
                 <img src="/public/img/4.png" id="avatarbg"/>
             </div>
             <div class="jobinfo">
-                <span class="job">{title}</span>
-                <span class="xinge">{desc}</span>
+                <span class="job"><%= title %></span>
+                <span class="xinge"><%= desc %></span>
             </div>
         </div>
         <div class="infobottom">
@@ -32,7 +32,3 @@
 <script src="/public/assets/js/bootstrap.min.js"></script>
 <script src="/public/dist/cropper.js"></script>
 <script src="/public/main.js"></script>
-
-
-
-
