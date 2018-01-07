@@ -21,6 +21,8 @@ services:
     volumes:
       - ./srv:/app
       - ./dist/log:/dist/log
+      - ./dist/public:/dist/public
+      - ./dist/uploader:/dist/uploader
     network_mode: "host"
     environment:
       - MONGO_URL=mongodb://tmcatuser:tmcat159@127.0.0.1/tmcat

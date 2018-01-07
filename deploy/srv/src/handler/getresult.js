@@ -15,11 +15,11 @@ const getresult = (user,callbackfn)=>{
       const gameModel = DBModels.GameDescModel;
       gameModel.findOne({pid:phoneid},(err,gameobj)=>{
         if(!err && !!gameobj){
-          let result = usernew.toJSON();
-          result = _.omit(result,['_id','__v']);
+          // let result = usernew.toJSON();
+          // result = _.omit(result,['_id','__v']);
           let gameobjnew = gameobj.toJSON();
           gameobjnew = _.omit(gameobjnew,['_id','pid','__v']);
-          result = _.merge(result,gameobjnew);
+          let result = _.merge(user,gameobjnew);
           callbackfn(null,result);
         }
         else{
