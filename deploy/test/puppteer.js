@@ -21,10 +21,13 @@ console.log(`===>`);
 (async () => {
   try{
     const browser = await puppeteer.launch();
+    console.log('browser1==>');
     const page = await browser.newPage();
+    console.log('browser2==>');
     await page.goto('https://news.ycombinator.com', {waitUntil: 'networkidle2'});
+    console.log('browser3==>');
     await page.pdf({path: '/app/hn.pdf', format: 'A4'});
-
+    console.log('browser4==>');
     await browser.close();
   }
   catche(e){
