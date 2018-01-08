@@ -19,10 +19,16 @@ const puppeteer = require('puppeteer');
 console.log(`===>`);
 
 (async () => {
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
-  await page.goto('https://news.ycombinator.com', {waitUntil: 'networkidle2'});
-  await page.pdf({path: 'hn.pdf', format: 'A4'});
+  try{
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto('https://news.ycombinator.com', {waitUntil: 'networkidle2'});
+    await page.pdf({path: 'hn.pdf', format: 'A4'});
 
-  await browser.close();
+    await browser.close();
+  }
+  catche(e){
+    console.log(e);
+  }
+
 })()
