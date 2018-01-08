@@ -19,7 +19,7 @@ const puppeteer = require('puppeteer');
 console.log(`===>`);
 
 (async () => {
-  try{
+
     const browser = await puppeteer.launch();
     console.log('browser1==>');
     const page = await browser.newPage();
@@ -29,9 +29,5 @@ console.log(`===>`);
     await page.screenshot({path: '/app/hn.png'});
     console.log('browser4==>');
     await browser.close();
-  }
-  catche(e){
-    console.log(e);
-  }
-
+    console.log('browser5==>');
 })()
