@@ -36,7 +36,10 @@
             var name = inputname.val();
             var phone = inputphone.val();
 
-            if(!myreg.test(phone)){
+            if(!!uploadeddata){
+                alert('请上传头像'); 
+                return false;
+            }else if(!myreg.test(phone)){
                 alert('请输入有效的手机号码！'); 
                 return false; 
             }else if(name==''){
