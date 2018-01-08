@@ -27,7 +27,14 @@ const startviews = (app)=>{
       const filename = `result_${uuid.v4()}.png`;
       const filepath = `${uploadDir}/${filename}`;
 
-      webshot(`${config.rooturl}/infohidden/${req.params.id}`,filepath, (err)=> {
+      webshot(`${config.rooturl}/infohidden/${req.params.id}`,filepath,
+        {
+          windowSize:
+          {
+            width: 640,
+            height: 1460
+          }
+      },(err)=> {
          res.redirect(`${config.uploadurl}/${filename}`);
       });
 
