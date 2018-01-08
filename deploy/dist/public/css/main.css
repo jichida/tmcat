@@ -223,12 +223,11 @@
     -webkit-align-items: center;
     margin-top: 30px;
     background: rgba(255,255,255,.7);
-    padding: 10px 0;
     border-radius: 6px;
     color: #000;
 }
 .maintitle div{
-    width: 80%;
+    width: 100%;
     margin-left: 10px;
 }
 .maintitle div>img{
@@ -238,6 +237,9 @@
     font-size: 16px;
     text-align: left;
     margin-right: 30px;
+    display: block;
+    width: 44%;
+    flex-shrink: 0;
 }
 .infopage{
     display: -webkit-box;
