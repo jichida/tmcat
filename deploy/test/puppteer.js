@@ -26,7 +26,7 @@ console.log(`===>`);
     console.log('browser2==>');
     await page.goto('https://news.ycombinator.com', {waitUntil: 'networkidle2'});
     console.log('browser3==>');
-    await page.pdf({path: '/app/hn.pdf', format: 'A4'});
+    await page.screenshot({path: '/app/hn.png'});
     console.log('browser4==>');
     await browser.close();
   }
