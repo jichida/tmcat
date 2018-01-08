@@ -254,15 +254,15 @@
     -moz-box-direction:normal;
     flex-direction:column;
     -webkit-flex-direction:column;
-    padding:0 30px;
+    padding:0 10px;
 }
 .infopage .infocontwamp{
     width: 100%;
     background:#FFF;
     border-radius: 10px;
-    margin-bottom: 20px;
     text-align: center;
     position: relative;
+    padding-top: 20px;
 }
 .infopage .infocont{
     width: 100%;
@@ -311,6 +311,7 @@
     -moz-justify-content: space-around;
     -webkit-justify-content: space-around;
     justify-content: space-around;
+    padding: 0 20px;
 }
 .infopage .infobottom >img{
     width: 30%;
@@ -390,7 +391,7 @@
     font-size:13px;
     font-family: "Microsoft YaHei";
     display: block;
-    margin:0 15%;
+    margin:0 5%;
 }
 
 
