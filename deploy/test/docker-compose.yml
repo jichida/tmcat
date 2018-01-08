@@ -3,7 +3,7 @@ services:
     appserver:
       image: puppeteer-chrome-linux:latest
       restart: always
-      command: node ./test.js
+      command: node ./puppteer.js
       working_dir: /app
       volumes:
         - ./:/app
