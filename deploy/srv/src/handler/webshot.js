@@ -20,6 +20,7 @@ const snapimage = (url,callbackfn)=>{
           quality:90
         },
    (err)=> {
+      console.log(err);
       callbackfn(err,returi);
     });
 };
