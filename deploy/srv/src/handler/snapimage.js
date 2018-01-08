@@ -13,9 +13,10 @@ const snapimage = (url,callbackfn)=>{
     instance.createPage().then(function(page){
        page.property('viewportSize', { width: 640, height: 1460 }).then(function(){
          page.open(url).then(function(status){
-           page.render(filepath);
-           instance.exit();
-           callbackfn(null,returi);
+           page.render(filepath).then(function(){
+             instance.exit();
+             callbackfn(null,returi);
+           });
          });
        });
     })
