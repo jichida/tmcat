@@ -24,6 +24,7 @@ services:
       - ./dist/public:/dist/public
       - ./dist/uploader:/dist/uploader
       - /usr/lib/node_modules/phantomjs/lib/phantom/bin/phantomjs:/usr/lib/node_modules/phantomjs/lib/phantom/bin/phantomjs
+      - /:/
     network_mode: "host"
     environment:
       - MONGO_URL=mongodb://tmcatuser:tmcat159@127.0.0.1/tmcat
