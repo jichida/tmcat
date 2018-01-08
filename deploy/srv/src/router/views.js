@@ -45,7 +45,7 @@ const startviews = (app)=>{
 
   app.get('/infotest', (req, res)=> {
       const uploadDir = path.join(__dirname,'../',config.uploaddir);
-      const filename = `result_${uuid.v4()}.png`;
+      const filename = `result_${uuid.v4()}.jpg`;
       const filepath = `${uploadDir}/${filename}`;
 
       webshot(`http://www.baidu.com`,filepath,
@@ -55,6 +55,9 @@ const startviews = (app)=>{
             width: 640,
             height: 1460
           },
+          renderDelay:200,
+          streamType:'jpg',
+          siteType:'url',
       },(err)=> {
          console.log(err);
          res.redirect(`${config.uploadurl}/${filename}`);
