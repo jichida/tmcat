@@ -16,6 +16,8 @@ const puppeteer = require('puppeteer');
 //     })
 //   })
 // });
+console.log(`===>`);
+
 (async () => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();

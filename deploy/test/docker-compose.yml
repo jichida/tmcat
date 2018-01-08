@@ -1,6 +1,6 @@
 version: '2'
 services:
-    appserver:
+    puppeteerserver:
       image: puppeteer-chrome-linux:latest
       restart: always
       command: node ./puppteer.js
