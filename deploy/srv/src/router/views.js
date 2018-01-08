@@ -34,15 +34,8 @@ const startviews = (app)=>{
             width: 640,
             height: 1460
           },
-          phantomConfig:{
-            /* Same as: --ignore-ssl-errors=true */
-            "ignoreSslErrors": true,
-            /* Same as: --max-disk-cache-size=1000 */
-            "maxDiskCacheSize": 1000,
-            /* Same as: --output-encoding=utf8 */
-            "outputEncoding": "utf8"
-          }
       },(err)=> {
+         console.log(err);
          res.redirect(`${config.uploadurl}/${filename}`);
       });
 
