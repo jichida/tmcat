@@ -22,7 +22,7 @@ const startviews = (app)=>{
 	});
   app.get('/info/:id', (req, res)=> {
     // res.redirect(`/infohidden/${req.params.id}`);
-    snapimage(`/infohidden/${req.params.id}`,(err,result)=>{
+    snapimage(`${config.rooturl}/infohidden/${req.params.id}`,(err,result)=>{
       if(!err && result){
         res.redirect(result);
       }
