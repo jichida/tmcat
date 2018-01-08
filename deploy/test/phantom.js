@@ -2,8 +2,11 @@
 const phantom = require('phantom');
 
 phantom.create().then(function(instance){
+  console.log('get instance!!');
   instance.createPage().then(function(page){
+    console.log('get page!!');
     page.open('http://tmcat.czjcd.com/infohidden/5a532bf5ca1c890001fb4d43', function(){
+      console.log('get open');
       page.render('/root/tmcat/deploy/dist/uploader/tmcat2.jpg');
       instance.exit();
       console.log('====>finish!!');
