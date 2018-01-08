@@ -36,7 +36,7 @@
             var name = inputname.val();
             var phone = inputphone.val();
 
-            if(!!uploadeddata){
+            if(!uploadeddata){
                 alert('请上传头像'); 
                 return false;
             }else if(!myreg.test(phone)){
