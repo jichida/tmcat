@@ -10,6 +10,6 @@ console.log('hello');
 console.log('你好');
 
 page.open('http://tmcat.czjcd.com/infohidden/5a532bf5ca1c890001fb4d43', function() {
-  page.render('/root/tmcat/deploy/dist/uploader/tmcat.png');
+  page.render('/root/tmcat/deploy/dist/uploader/tmcat.jpg');
   phantom.exit();
 });
