@@ -6,7 +6,7 @@ phantom.create().then(function(instance){
     page.open('http://tmcat.czjcd.com/infohidden/5a532bf5ca1c890001fb4d43', function(){
       page.render('/root/tmcat/deploy/dist/uploader/tmcat2.jpg');
       instance.exit();
-      console.log(`====>finish!!`);
+      console.log('====>finish!!');
     });
   })
 }).catch((e)=>{
