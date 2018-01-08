@@ -2,7 +2,7 @@ const DBModels = require('../db/models');
 const mongoose = require('mongoose');
 
 const config = require('../config.js');
-const snapimage= require('../handler/snapimage.js');
+const snapimage= require('../handler/webshot.js');
 
 const startviews = (app)=>{
   app.get('/', (req, res)=> { res.render('index'); });
@@ -22,7 +22,7 @@ const startviews = (app)=>{
 	});
   app.get('/info/:id', (req, res)=> {
     // res.redirect(`/infohidden/${req.params.id}`);
-    snapimage(`/infohidden/${req.params.id}`,(err,result)=>{
+    snapimage(`${config.rooturl}/infohidden/${req.params.id}`,(err,result)=>{
       if(!err && result){
         res.redirect(result);
       }
