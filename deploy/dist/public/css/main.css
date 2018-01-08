@@ -313,13 +313,16 @@
     justify-content: space-around;
     padding: 0 20px;
 }
-.infopage .infobottom >img{
+
+.infopage .infobottom span.er{
+    display: inline-block;
     width: 30%;
     flex-shrink: 0;
+    color: #FFF;
+    font-weight: bold;
 }
-.infopage .infobottom span{
+.infopage .infobottom span.er2{
     display: inline-block;
-    border-radius: 100px;
     flex-grow: 1;
     margin:0 0 0 30px;
     text-align: center;
