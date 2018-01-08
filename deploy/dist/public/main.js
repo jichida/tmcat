@@ -10,7 +10,7 @@
 })(function ($) {
     'use strict';
     $(function(){
-        $("#crop-avatar").css("min-height",window.innerHeight-55+"px");
+        $("#crop-avatar").css("min-height",window.innerHeight+"px");
         var thisimg = null
         var inputname = $("input[name='name']");
         var inputphone = $("input[name='phone']");

@@ -99,6 +99,7 @@
 }
 .page form input{
     color: #000;
+    border: 1px solid #666;
 }
 .page form button{
     background: #369;
@@ -108,8 +109,13 @@
     line-height: 46px;
     height: 46px;
 }
+.page form > div.dis{
+    font-size: 16px;
+    width: 70%;
+    color: #000;
+}
 .page form > div.avatarcontent{
-    border:1px solid #CCC;
+    border:1px solid #666;
     background: #FFF;
     border-radius: 1000px;
     width: 120px;
@@ -125,7 +131,11 @@
     -moz-justify-content: center;
     -webkit-justify-content: center;
     justify-content: center;
-
+    margin-bottom: 0;
+}
+.page form > h4.avatarcontenttext{
+    margin-bottom: 20px;
+    display: block;
 }
 #avatar-modal .modal-body{
     position: relative;
@@ -218,15 +228,14 @@
     color: #000;
 }
 .maintitle div{
-    width: 33%;
-    margin: 0 20px;
-    background: #FFF;
+    width: 80%;
+    margin-left: 10px;
 }
 .maintitle div>img{
     width: 100%;
 }
 .maintitle span{
-    font-size: 22px;
+    font-size: 16px;
     text-align: left;
     margin-right: 30px;
 }
@@ -288,8 +297,7 @@
     justify-content: center;
 }
 .infopage .infocont #useravatar>img{
-    position: absolute;
-    width: 130px;
+    width: 124px;
     border-radius: 1000px;
 }
 .infopage .infobottom{
@@ -305,19 +313,18 @@
     justify-content: space-around;
 }
 .infopage .infobottom >img{
-    width: 23%;
+    width: 30%;
     flex-shrink: 0;
 }
 .infopage .infobottom span{
     display: inline-block;
-    background: #8fdeff;
     border-radius: 100px;
-    flex-grow: 1px;
+    flex-grow: 1;
     margin:0 0 0 30px;
     text-align: center;
 }
 .infopage .infobottom span >img{
-    width: 50%;
+    width: 100%;
 }
 .head .back{
     position: relative;
