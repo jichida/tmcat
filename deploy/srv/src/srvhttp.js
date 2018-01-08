@@ -6,9 +6,7 @@ const http = require('http').Server(app);
 const bodyParser = require("body-parser");
 const config = require('./config');
 const routerindex = require("./router/index.js");
-const upload = require('jquery-file-upload-middleware');
-const uuid = require('uuid');
-const _  = require('lodash');
+
 const expressLayouts = require('express-ejs-layouts');
 const mkdirp = require('mkdirp');
 
@@ -48,36 +46,6 @@ let startsrv = ()=>{
       res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
       next();
   });
-
-  upload.configure({
-    uploadDir: uploaddir,
-    uploadUrl: config.uploadurl,
-    accessControl: {
-        allowOrigin: '*',
-        allowMethods: 'POST'
-    },
-    imageVersions: {// apt-get install imagemagick
-      thumbnail: {
-        width: 80,
-        height: 80
-      }
-    }
-  });
-
-  upload.on("begin", (fileInfo)=> {
-    let ext = 'jpg';
-    let sz = _.split(fileInfo.type, '/');
-    if(sz.length > 1){
-      ext = sz[sz.length - 1];
-    }
-    fileInfo.name = `${uuid.v4()}.${ext}`;
-    console.log(`开始上传文件:${JSON.stringify(fileInfo)}`);
-  });
-
-  upload.on('error', function (e, req, res) {
-    winston.getlog().error(`上传文件失败${e.message}`);
-  });
-  app.use('/uploadavatar',upload.fileHandler());
 
 
   routerindex.startrouter(app);

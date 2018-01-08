@@ -6,8 +6,8 @@ const startapi = (app)=>{
   app.post('/api/insertuser',insertuser);
   app.get('/api/downloadexcel',downloadexcel);
   //for nginx
-  app.post('/insertuser',insertuser);
-  app.get('/downloadexcel',downloadexcel);
+  // app.post('/insertuser',insertuser);
+  // app.get('/downloadexcel',downloadexcel);
 
 };
 

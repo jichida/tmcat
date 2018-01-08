@@ -1,14 +1,12 @@
 const DBModels = require('../db/models');
 const mongoose = require('mongoose');
-const webshot = require('webshot');
-const uuid = require('uuid');
-const path = require('path');
-const config = require('../config.js');
 
+const config = require('../config.js');
+const snapimage= require('../handler/snapimage.js');
 
 const startviews = (app)=>{
-  app.get('/', (req, res)=> { res.render('index', {}); });
-  app.get('/api', (req, res)=> { res.render('index', { title: 'Express' }); });
+  app.get('/', (req, res)=> { res.render('index'); });
+
   app.get('/infohidden/:id', (req, res)=> {
       const resultid = mongoose.Types.ObjectId(req.params.id);
       const dbModel = DBModels.ResultModel;
@@ -23,48 +21,19 @@ const startviews = (app)=>{
 
 	});
   app.get('/info/:id', (req, res)=> {
-    res.redirect(`/infohidden/${req.params.id}`);
-
-      // const uploadDir = path.join(__dirname,'../',config.uploaddir);
-      // const filename = `result_${uuid.v4()}.png`;
-      // const filepath = `${uploadDir}/${filename}`;
-      //
-      // webshot(`${config.rooturl}/infohidden/${req.params.id}`,filepath,
-      //   {
-      //     windowSize:
-      //     {
-      //       width: 640,
-      //       height: 1460
-      //     },
-      // },(err)=> {
-      //    console.log(err);
-      //    res.redirect(`${config.uploadurl}/${filename}`);
-      // });
+    // res.redirect(`/infohidden/${req.params.id}`);
+    snapimage(`/infohidden/${req.params.id}`,(err,result)=>{
+      if(!err && result){
+        res.redirect(result);
+      }
+      else{
+        res.redirect(`/error`);
+      }
+      console.log(result);
+    });
 
 	});
-
-  app.get('/infotest', (req, res)=> {
-      const uploadDir = path.join(__dirname,'../',config.uploaddir);
-      const filename = `result_${uuid.v4()}.jpg`;
-      const filepath = `${uploadDir}/${filename}`;
-
-      webshot(`http://www.baidu.com`,filepath,
-        {
-          windowSize:
-          {
-            width: 640,
-            height: 1460
-          },
-          renderDelay:200,
-          streamType:'jpg',
-          siteType:'url',
-      },(err)=> {
-         console.log(err);
-         res.redirect(`${config.uploadurl}/${filename}`);
-      });
-
-  });
-  app.get('/error', (req, res)=> { res.render('error', { title: 'Express' }); });
+  app.get('/error', (req, res)=> { res.render('error'); });
 };
 
 module.exports= startviews;
