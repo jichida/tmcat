@@ -1,10 +1,15 @@
 const DBModels = require('../db/models');
 const mongoose = require('mongoose');
+const webshot = require('webshot');
+const uuid = require('uuid');
+const path = require('path');
+const config = require('../config.js');
+
 
 const startviews = (app)=>{
   app.get('/', (req, res)=> { res.render('index', {}); });
   app.get('/api', (req, res)=> { res.render('index', { title: 'Express' }); });
-  app.get('/info/:id', (req, res)=> {
+  app.get('/infohidden/:id', (req, res)=> {
       const resultid = mongoose.Types.ObjectId(req.params.id);
       const dbModel = DBModels.ResultModel;
       dbModel.findOne({_id:resultid},(err,result)=>{
@@ -15,13 +20,31 @@ const startviews = (app)=>{
           res.render('error');
         }
       });
-  		// var result = {
-  		// 	phone: '15961125167',
-      //       name: '123',
-      //       avatar: '/uploader/upload_f2062e28ef196df22ec83dc067ae573f.png',
-      //       title: '艺术总监CAO',
-      //       desc: '有个性的你在人群中总是闪闪发亮，脑洞大开富有想象力，人格魅力不可阻挡，未来的SuperStar就是你。'
-      //   }
+
+	});
+  app.get('/info/:id', (req, res)=> {
+      const uploadDir = path.join(__dirname,'../',config.uploaddir);
+      const filename = `result_${uuid.v4()}.png`;
+      const filepath = `${uploadDir}/${filename}`;
+
+      webshot(`${config.rooturl}/infohidden/${req.params.id}`,filepath,
+        {
+          windowSize:
+          {
+            width: 640,
+            height: 1460
+          },
+          phantomConfig:{
+            /* Same as: --ignore-ssl-errors=true */
+            "ignoreSslErrors": true,
+            /* Same as: --max-disk-cache-size=1000 */
+            "maxDiskCacheSize": 1000,
+            /* Same as: --output-encoding=utf8 */
+            "outputEncoding": "utf8"
+          }
+      },(err)=> {
+         res.redirect(`${config.uploadurl}/${filename}`);
+      });
 
 	});
   app.get('/error', (req, res)=> { res.render('error', { title: 'Express' }); });

@@ -1,0 +1,10 @@
+version: '2'
+services:
+    puppeteerserver:
+      image: puppeteer-chrome-linux:latest
+      restart: always
+      command: node ./puppteer.js
+      working_dir: /app
+      volumes:
+        - ./:/app
+      network_mode: "host"

@@ -26,6 +26,7 @@ services:
     network_mode: "host"
     environment:
       - MONGO_URL=mongodb://tmcatuser:tmcat159@127.0.0.1/tmcat
+      - rooturl=http://tmcat.czjcd.com
       - listenport=3005
     ports:
        - "3005:3005"
