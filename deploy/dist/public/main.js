@@ -10,6 +10,7 @@
 })(function ($) {
     'use strict';
     $(function(){
+        var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/; 
         $("#crop-avatar").css("min-height",window.innerHeight+"px");
         var thisimg = null
         var inputname = $("input[name='name']");
@@ -31,19 +32,31 @@
             // console.log(thisimg.cropper('getCroppedCanvas'));
 
             // var croppng = thisimg.cropper('getCroppedCanvas').toDataURL("image/png");
-            $.ajax({
-                type: 'POST',
-                url: '/api/insertuser',
-                data: {
-                  pngimageData: uploadeddata,
-                  name:inputname.val(),
-                  phone:inputphone.val()
-                },
-                success: function(output) {
-                  // alert(JSON.stringify(output));
-                  window.location = `/info/${output._id}`;
-                }
-            })
+
+            var name = inputname.val();
+            var phone = inputphone.val();
+
+            if(!myreg.test(phone)){
+                alert('请输入有效的手机号码！'); 
+                return false; 
+            }else if(name==''){
+                alert('您的姓名'); 
+                return false;
+            }else{
+                $.ajax({
+                    type: 'POST',
+                    url: '/api/insertuser',
+                    data: {
+                      pngimageData: uploadeddata,
+                      name:inputname.val(),
+                      phone:inputphone.val()
+                    },
+                    success: function(output) {
+                      // alert(JSON.stringify(output));
+                      window.location = `/info/${output._id}`;
+                    }
+                })
+            }
             // thisimg.cropper('getCroppedCanvas').toBlob(function (blob) {
             //     console.log(blob);
             //     // var formData = new FormData();
