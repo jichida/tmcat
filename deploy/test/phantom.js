@@ -5,9 +5,10 @@ const snapimage = (url,callbackfn)=>{
   phantom.create().then(function(instance){
     console.log('get instance!!');
     instance.createPage().then(function(page){
-      console.log('get page!!');
+       console.log('get page!!');
        page.property('viewportSize', { width: 640, height: 1460 }).then(function(){
-         page.open(url, function(status){
+         console.log('viewportSize!!');
+         page.open(url).then(function(status){
            console.log('get open');
            page.render('/root/tmcat/deploy/dist/uploader/tmcat2.jpg');
            instance.exit();
