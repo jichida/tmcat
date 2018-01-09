@@ -13,11 +13,11 @@ const snapimage = (url,callbackfn)=>{
   webshot(url,filepath,{
           windowSize:
           {
-            width: 640,
-            height: 1460
+            width: 375,
+            height: 667
           },
           streamType:'jpg',
-          quality:90
+          quality:80
         },
    (err)=> {
       console.log(err);

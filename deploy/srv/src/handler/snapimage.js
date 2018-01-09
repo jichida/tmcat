@@ -11,7 +11,7 @@ const snapimage = (url,callbackfn)=>{
   console.log(`phantom->打开${url}\n目标文件:${filepath}\n文件返回地址:${returi}`)
   phantom.create().then(function(instance){
     instance.createPage().then(function(page){
-       page.property('viewportSize', { width: 640, height: 1460 }).then(function(){
+       page.property('viewportSize', { width: 375, height: 667 }).then(function(){
          page.open(url).then(function(status){
            page.render(filepath).then(function(){
              instance.exit();
