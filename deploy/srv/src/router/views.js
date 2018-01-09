@@ -24,7 +24,9 @@ const startviews = (app)=>{
     // res.redirect(`/infohidden/${req.params.id}`);
     snapimage(`${config.rooturl}/infohidden/${req.params.id}`,(err,result)=>{
       if(!err && result){
-        res.redirect(result);
+        let json = {imageurl:result};
+        res.render('image', json);
+        // res.redirect(result);
       }
       else{
         res.redirect(`/error`);
