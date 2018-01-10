@@ -15,7 +15,6 @@ services:
         - appserver
   appserver:
     image: node:6.11.2
-    restart: always
     command: node ./index.js
     working_dir: /app
     volumes:
