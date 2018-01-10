@@ -8,8 +8,9 @@ const snapimage = (url,callbackfn)=>{
   const filename = `result_${uuid.v4()}.jpg`;
   const filepath = `${uploadDir}/${filename}`;
   const returi = `${config.uploadurl}/${filename}`;
-  console.log(`phantom->打开${url}\n目标文件:${filepath}\n文件返回地址:${returi}`)
-  phantom.create(['--ignore-ssl-errors=yes', '--load-images=no']).then(function(instance){
+  console.log(`<---phantom->打开${url}\n目标文件:${filepath}\n文件返回地址:${returi}`);
+  
+  phantom.create(['--ignore-ssl-errors=yes',phantomPath: '/usr/lib/node_modules/phantomjs/lib/phantom/bin/phantomjs']).then(function(instance){
     console.log('create instance ok!!')
     instance.createPage().then(function(page){
        page.property('viewportSize', { width: 375, height: 667 }).then(function(){
