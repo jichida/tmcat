@@ -313,7 +313,6 @@
     -moz-justify-content: space-around;
     -webkit-justify-content: space-around;
     justify-content: space-around;
-    padding: 0 20px;
 }
 .infopage .infobottom>img{
     max-width: 100%;
