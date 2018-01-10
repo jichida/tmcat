@@ -21,6 +21,7 @@ const snapimage = (url,callbackfn)=>{
        });
     })
   }).catch((e)=>{
+    console.log(e);
     callbackfn(e,null);
   });
 };
