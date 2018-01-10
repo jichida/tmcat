@@ -23,7 +23,7 @@ services:
       - ./dist/log:/dist/log
       - ./dist/public:/dist/public
       - ./dist/uploader:/dist/uploader
-      - /usr/lib/node_modules/phantomjs/lib/phantom/bin/phantomjs:/usr/lib/node_modules/phantomjs/lib/phantom/bin/phantomjs
+      - /usr/lib/node_modules/phantomjs/lib/phantom/bin:/usr/lib/node_modules/phantomjs/lib/phantom/bin
       - /usr/share/fonts/truetype:/usr/share/fonts/truetype
     network_mode: "host"
     environment:
