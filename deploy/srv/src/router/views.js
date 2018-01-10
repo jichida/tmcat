@@ -2,7 +2,7 @@ const DBModels = require('../db/models');
 const mongoose = require('mongoose');
 
 const config = require('../config.js');
-const snapimage= require('../handler/phantom.js');
+const snapimage= require('../handler/snapimage.js');
 
 const startviews = (app)=>{
   app.get('/', (req, res)=> { res.render('main'); });
