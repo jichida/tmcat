@@ -19,26 +19,20 @@ const insertuser = (req,res)=>{
               if(!err && !!result){
                 res.status(200).json({_id:result._id});
               }
+              else{
+                res.redirect(`/error`);
+              }
             });
-            //发送结果页面
-            // {
-            //   phone: '15961125167',
-            //   name: '123',
-            //   avatar: '/uploader/upload_f2062e28ef196df22ec83dc067ae573f.png',
-            //   title: '艺术总监CAO',
-            //   desc: '有个性的你在人群中总是闪闪发亮，脑洞大开富有想象力，人格魅力不可阻挡，未来的SuperStar就是你。'
-            // }
-            // res.render('info',result);
-
-
           }
           else{
             //send error
+            res.redirect(`/error`);
           }
         });
       }
       else{
         //send error
+        res.redirect(`/error`);
       }
     });
 };
