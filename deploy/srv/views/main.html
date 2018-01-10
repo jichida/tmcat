@@ -1,0 +1,152 @@
+<link rel="stylesheet" type="text/css" href="/public/css/starwar.css" />
+<style type="text/css" media="screen">
+    body{
+        padding: 0;
+        margin: 0;
+    }
+    body #bgimg{
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        background: url('/public/img/6.jpg') no-repeat center;
+        background-size: auto 100%;
+    }
+    .upup{
+        position: fixed;
+        z-index: 1000;
+        bottom: 0;
+        width: 30px;
+        width: 100%;
+        text-align: center;
+
+    }
+    .upup img{
+        width: 30px;
+    }
+    .upup span{
+        display: block;
+        color: #FFF;
+        margin-bottom: 15px;
+    }
+    #main1{
+        border: 1px solid #C00;
+        /*display: none;*/
+    }
+    #main2{
+        position: relative;
+        z-index: 1000;
+        display: none;
+    }
+    #main2 .lo,
+    #main2 .img8{
+        text-align: center;
+        padding-top: 30px;
+        
+    }
+    #main2 #logo{
+        width: 80%;
+        position: relative;
+        margin: auto;
+        z-index: 101;
+        display: none;
+    }
+    #main2 #img8{
+        width: 100%;
+        position: fixed;
+        right: 0;
+        bottom: 100px;
+        z-index: 101;
+        display: none;
+    }
+
+    #wamp2{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background:  rgba(0,0,0,.6);
+        z-index: 100;
+    }
+    
+</style>
+<div class="maincontent" id="inp">
+    <input id="startInp" type="hidden" />
+    <input id="endInp" type="hidden" />
+    <div id="bgimg"></div>
+    <div id="main1">
+        
+        <div id="titles">
+            <div id="titlecontent">
+                <!--subtitle-->
+                <p class="center">在神秘的异次元</p>
+                <!--article-->
+                <p class="center">编程世界中 &nbsp;</p>
+                <p class="center">有一个神奇的存在</p>
+                <p class="center" >他神出鬼没</p>
+                <p class="center">拥有秘术</p>
+                <p class="center">传说中他最神秘的力量</p>
+                <p class="center">就是能够预知未来&hellip;</p>
+            </div>
+        </div>
+    </div>
+    <div id="main2">
+        <div id="wamp2"></div>
+
+        <div class="lo"><img src="/public/img/1.png" id="logo" /></div>
+        <div class="img8"><img src="/public/img/8.png" id="img8" /></div>
+    </div>
+    <span class="upup"><img src="/public/img/7.gif" /><span>向上滑动</span></span>
+</div>
+<script src="/public/assets/js/jquery.min.js"></script>
+<script src="/public/assets/js/bootstrap.min.js"></script>
+<script src="/public/dist/cropper.js"></script>
+<script src="/public/main.js"></script>
+<script>
+    $(function(){
+        console.log($);
+        var tg = 1;
+        function load (){
+            document.addEventListener('touchstart',touch, false);
+            document.addEventListener('touchend',touch, false);
+            function touch (event){  
+                var event = event || window.event;
+                   
+                var startInp = $("#startInp");  
+                var endInp = $("#endInp");  
+           
+                switch(event.type){  
+                    case "touchstart":
+                        console.log(event);
+                        startInp.val(event.touches[0].clientY);
+                        break;  
+                    case "touchend":  
+                        endInp.val(event.changedTouches[0].clientY);
+                        setTimeout(function(){
+                            var movelength = startInp.val()-endInp.val();
+                            if(movelength>40){
+                                console.log("这里是上滑");
+                                tg2();
+                            }else if(movelength<40){
+                                console.log("这里是下滑");
+                            }
+                        }, 100);
+                        break;   
+                }  
+                   
+            }  
+        } 
+        function tg1(){
+
+        }
+        function tg2(){
+            var main1 = $("#main1");
+            var main2 = $("#main2");
+            main1.fadeOut();
+            main2.fadeIn();
+        }
+
+
+        window.addEventListener('load',load, false); 
+    })
+</script>
