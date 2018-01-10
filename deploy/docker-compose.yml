@@ -16,7 +16,7 @@ services:
   appserver:
     image: node:6.11.2
     restart: always
-    command: node ./index.js
+    command: /usr/bin/node ./index.js
     working_dir: /app
     volumes:
       - ./srv:/app
