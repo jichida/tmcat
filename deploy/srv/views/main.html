@@ -68,7 +68,45 @@
         background:  rgba(0,0,0,.6);
         z-index: 100;
     }
-    
+    #danmu{
+        position: fixed;
+        top: 10px;
+        z-index: 1000;
+        left: 0;
+        color: #111;
+        height: 100px;
+        width: 100%;
+    }
+    #danmu p{
+        background: rgba(255,255,255,.7);
+        border-radius: 50px;
+        line-height: 30px;
+        padding:0 20px;
+        display: inline-block;
+        position: absolute;
+    }
+    #danmu #d1{
+        /*display: none;*/
+        width: 195px;
+        right: 10px;
+        top: 0;
+        right: -248px;
+    }
+    #danmu #d2{
+        /*display: none;*/
+        width: 118px;
+        right: 10px;
+        top: 40px;
+        right: -158px;
+    }
+    #danmu #d3{
+        /*display: none;*/
+        width: 100px;
+        right: 10px;
+        top: 80px;
+        right: -148px;
+    }
+
 </style>
 <div class="maincontent" id="inp">
     <input id="startInp" type="hidden" />
@@ -92,9 +130,14 @@
     </div>
     <div id="main2">
         <div id="wamp2"></div>
-
+        
         <div class="lo"><img src="/public/img/1.png" id="logo" /></div>
         <div class="img8"><img src="/public/img/8.png" id="img8" /></div>
+    </div>
+    <div id="danmu">
+        <p id="d1">他会在每年特定的时间出现</p>
+        <p id="d2">帮人们预测未来</p>
+        <p id="d3">他就是猫老祖</p>
     </div>
     <span class="upup"><img src="/public/img/7.gif" /><span>向上滑动</span></span>
 </div>
@@ -107,11 +150,11 @@
         console.log($);
         var tg = 1;
         function load (){
+            
             document.addEventListener('touchstart',touch, false);
             document.addEventListener('touchend',touch, false);
-            function touch (event){  
+            function touch (event){ 
                 var event = event || window.event;
-                   
                 var startInp = $("#startInp");  
                 var endInp = $("#endInp");  
            
@@ -132,18 +175,55 @@
                             }
                         }, 100);
                         break;   
-                }  
-                   
-            }  
+                }
+            }
         } 
         function tg1(){
-
+            // setTimeout(function(){tg = 1}, 1500);
         }
         function tg2(){
-            var main1 = $("#main1");
-            var main2 = $("#main2");
-            main1.fadeOut();
-            main2.fadeIn();
+            var upup = $(".upup");
+            upup.fadeOut();
+            if(tg===1){
+                tg = 2;
+                var main1 = $("#main1");
+                var main2 = $("#main2");
+                var main2img8 = $("#main2 #img8");
+                var main2logo = $("#main2 #logo");
+                var d1 = $("#d1");
+                var d2 = $("#d2");
+                var d3 = $("#d3");
+                
+                main1.fadeOut();
+                main2.fadeIn("fast", function(){
+                    main2img8.fadeIn("fast", function(){
+                        setTimeout(function(){main2logo.fadeIn("fast", function(){
+                            setTimeout(function(){
+                                // d1.fadeIn("fast", function(){
+                                //     d2.fadeIn("fast", function(){
+                                //         d3.fadeIn("fast",function(){
+                                //             tg = 3;
+                                //         })
+                                //     })
+                                // })
+                                d1.animate({ right: "10px"}, 200 ,function(){
+                                    d2.animate({ right: "10px"}, 200 , function(){
+                                        d3.animate({ right: "10px"}, 200 , function(){
+                                            tg = 3;
+                                            upup.fadeIn();
+                                        });
+                                    });
+                                });
+                                
+                                
+                            }, 500)
+                        });}, 500);
+                    });
+                    
+                });
+            }else if(tg === 3){
+                window.location.href="http://tmcat.czjcd.com/index"; 
+            }
         }
 
 
