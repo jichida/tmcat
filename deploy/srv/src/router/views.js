@@ -19,7 +19,6 @@ const startviews = (app)=>{
           res.render('error');
         }
       });
-
 	});
   app.get('/info/:id', (req, res)=> {
     // res.redirect(`/infohidden/${req.params.id}`);
