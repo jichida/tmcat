@@ -17,7 +17,8 @@ const snapimage = (url,callbackfn)=>{
             height: 667
           },
           streamType:'jpg',
-          quality:99
+          quality:99,
+          phantomPath: '/usr/lib/node_modules/phantomjs/lib/phantom/bin/phantomjs'
         },
    (err)=> {
       console.log(err);
