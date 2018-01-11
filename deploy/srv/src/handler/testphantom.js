@@ -1,8 +1,8 @@
 
-const webshot= require('../handler/webshot.js');
+const phantom= require('../handler/snapimage.js');
 
-const testwebbot = (req,res)=>{
-  webshot(`http://tmcat.czjcd.com/info/5a532bf5ca1c890001fb4d43`,(err,result)=>{
+const testphantom = (req,res)=>{
+  phantom(`http://tmcat.czjcd.com/info/5a532bf5ca1c890001fb4d43`,(err,result)=>{
     console.log(err);
     console.log(result);
     if(!err && result){
@@ -16,4 +16,4 @@ const testwebbot = (req,res)=>{
   });
 };
 
-module.exports= testwebbot;
+module.exports= testphantom;
