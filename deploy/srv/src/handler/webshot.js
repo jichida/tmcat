@@ -17,7 +17,7 @@ const snapimage = (url,callbackfn)=>{
             height: 667
           },
           streamType:'jpg',
-          quality:80
+          quality:99
         },
    (err)=> {
       console.log(err);
