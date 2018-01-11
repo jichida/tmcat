@@ -41,7 +41,7 @@
     #main2 .img8{
         text-align: center;
         padding-top: 30px;
-        
+
     }
     #main2 #logo{
         width: 80%;
@@ -113,7 +113,7 @@
     <input id="endInp" type="hidden" />
     <div id="bgimg"></div>
     <div id="main1">
-        
+
         <div id="titles">
             <div id="titlecontent">
                 <!--subtitle-->
@@ -130,7 +130,7 @@
     </div>
     <div id="main2">
         <div id="wamp2"></div>
-        
+
         <div class="lo"><img src="/public/img/1.png" id="logo" /></div>
         <div class="img8"><img src="/public/img/8.png" id="img8" /></div>
     </div>
@@ -150,20 +150,20 @@
         console.log($);
         var tg = 1;
         function load (){
-            
+
             document.addEventListener('touchstart',touch, false);
             document.addEventListener('touchend',touch, false);
-            function touch (event){ 
+            function touch (event){
                 var event = event || window.event;
-                var startInp = $("#startInp");  
-                var endInp = $("#endInp");  
-           
-                switch(event.type){  
+                var startInp = $("#startInp");
+                var endInp = $("#endInp");
+
+                switch(event.type){
                     case "touchstart":
                         console.log(event);
                         startInp.val(event.touches[0].clientY);
-                        break;  
-                    case "touchend":  
+                        break;
+                    case "touchend":
                         endInp.val(event.changedTouches[0].clientY);
                         setTimeout(function(){
                             var movelength = startInp.val()-endInp.val();
@@ -174,10 +174,10 @@
                                 console.log("这里是下滑");
                             }
                         }, 100);
-                        break;   
+                        break;
                 }
             }
-        } 
+        }
         function tg1(){
             // setTimeout(function(){tg = 1}, 1500);
         }
@@ -193,7 +193,7 @@
                 var d1 = $("#d1");
                 var d2 = $("#d2");
                 var d3 = $("#d3");
-                
+
                 main1.fadeOut();
                 main2.fadeIn("fast", function(){
                     main2img8.fadeIn("fast", function(){
@@ -214,19 +214,19 @@
                                         });
                                     });
                                 });
-                                
-                                
+
+
                             }, 500)
                         });}, 500);
                     });
-                    
+
                 });
             }else if(tg === 3){
-                window.location.href="http://tmcat.czjcd.com/index"; 
+                window.location.href="<%= indexurl %>"; 
             }
         }
 
 
-        window.addEventListener('load',load, false); 
+        window.addEventListener('load',load, false);
     })
 </script>

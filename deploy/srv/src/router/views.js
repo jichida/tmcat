@@ -5,7 +5,7 @@ const config = require('../config.js');
 const snapimage= require('../handler/webshot.js');
 
 const startviews = (app)=>{
-  app.get('/', (req, res)=> { res.render('main'); });
+  app.get('/', (req, res)=> { res.render('main',{indexurl:`${config.rooturl}/index`}); });
   app.get('/index', (req, res)=> { res.render('index'); });
 
   app.get('/infohidden/:id', (req, res)=> {
