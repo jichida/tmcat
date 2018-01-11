@@ -1,7 +1,9 @@
 const DBModels = require('../db/models');
 const _ = require('lodash');
+const moment = require('moment');
 const getresult = (user,callbackfn)=>{
   const userModel = DBModels.UserModel;
+  user.updatetime = moment().format('YYYY-MM-DD HH:mm:ss');
   userModel.findOneAndUpdate({phone:user.phone}, {$set:user},{new: true,upsert:true},(err,usernew)=>{
     if(!err && !!usernew){
       let phoneid = 0;

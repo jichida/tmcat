@@ -9,7 +9,9 @@ mongoose.Promise = global.Promise;
 const UserSchema = new Schema({
   name:String,
   phone:String,
-  avatar:String
+  avatar:String,
+  createtime:{ type: String, default:moment().format('YYYY-MM-DD HH:mm:ss')},
+  updatetime:{ type: String, default:moment().format('YYYY-MM-DD HH:mm:ss')},
 });
 UserSchema.plugin(mongoosePaginate);
 const UserModel  = mongoose.model('user',  UserSchema);
@@ -18,7 +20,7 @@ const UserModel  = mongoose.model('user',  UserSchema);
 const GameDescSchema = new Schema({
   pid:Number,
   title:String,
-  desc:String
+  desc:String,
 });
 GameDescSchema.plugin(mongoosePaginate);
 const GameDescModel  = mongoose.model('gamedesc',  GameDescSchema);
@@ -30,7 +32,7 @@ const ResultSchema = new Schema({
   avatar:String,
   title:String,
   desc:String,
-  createtime:String
+  createtime:{ type: String, default:moment().format('YYYY-MM-DD HH:mm:ss')},
 });
 ResultSchema.plugin(mongoosePaginate);
 const ResultModel  = mongoose.model('result',  ResultSchema);
