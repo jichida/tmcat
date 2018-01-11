@@ -24,7 +24,7 @@ services:
       - ./dist/public:/dist/public
       - ./dist/uploader:/dist/uploader
       - /usr/lib/node_modules/phantomjs/lib/phantom/bin:/usr/lib/node_modules/phantomjs/lib/phantom/bin
-      - /usr/share/fonts/truetype:/usr/share/fonts/truetype
+      - /usr/share/fonts:/usr/share/fonts
       - /usr/bin:/usr/bin
     network_mode: "host"
     environment:
