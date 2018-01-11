@@ -18,7 +18,11 @@ const snapimage = (url,callbackfn)=>{
           },
           streamType:'jpg',
           quality:99,
-          phantomPath: '/usr/lib/node_modules/phantomjs/lib/phantom/bin/phantomjs'
+          phantomPath: '/usr/lib/node_modules/phantomjs/lib/phantom/bin/phantomjs',
+          phantomConfig:{
+            'ignore-ssl-errors': true,
+            'debug':true,
+          }
         },
    (err)=> {
       console.log(err);
