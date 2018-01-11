@@ -27,7 +27,7 @@ const GameDescModel  = mongoose.model('gamedesc',  GameDescSchema);
 
 //结果显示记录
 const ResultSchema = new Schema({
-  phone:Number,
+  phone:String,
   name:String,
   avatar:String,
   title:String,

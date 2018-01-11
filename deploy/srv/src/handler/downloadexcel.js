@@ -5,11 +5,11 @@ const config = require('../config.js');
 
 const downloadexcel = (req,res)=>{
   const userModel = DBModels.UserModel;
-  const fields = 'name phone avatar createtime updatetime';
+  const fields = 'name phone avatar updatetime';
   const query = {};
 
   // const sz = fields.split(' ');
-  const csvfields = '姓名,手机号,头像地址,首次预测时间,最近预测时间';// sz.join(',');
+  const csvfields = '姓名,手机号,头像地址,预测时间';// sz.join(',');
   console.log(`csvfields-->${csvfields}`);
 
   const filename = 'db-userdata-' + new Date().getTime() + '.csv';
@@ -41,8 +41,7 @@ const downloadexcel = (req,res)=>{
         '姓名':doc.name,
         '手机号':doc.phone,
         '头像地址':`${config.rooturl}${doc.avatar}`,
-        '首次预测时间':doc.createtime,
-        '最近预测时间':doc.updatetime
+        '预测时间':doc.updatetime
       };
       csvwriter(newdoc, {header: false, fields: csvfields}, (err, csv)=> {
         // console.log(`csv-->${csv}`);
