@@ -6,8 +6,16 @@ body{
 #imgs{
 	display: flex;
 }
+#point{
+	pointer-events: none;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 1000;
+	width: 100%;
+}
 </style>
 <div id="imgs">
 	<img src="<%=imageurl %>" style="width: 100%" />
 </div>
-<img />
+<img src="/public/12.png" id="point" />
