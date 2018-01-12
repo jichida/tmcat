@@ -10,7 +10,7 @@
 })(function ($) {
     'use strict';
     $(function(){
-        var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/; 
+        var myreg = /^(1+\d{10})$/;
         $("#crop-avatar").css("min-height",window.innerHeight+"px");
         var thisimg = null
         var inputname = $("input[name='name']");
