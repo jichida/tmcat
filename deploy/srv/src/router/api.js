@@ -5,7 +5,7 @@ const testwebbot = require('../handler/testwebbot');
 const testphantom = require('../handler/testphantom');
 const startapi = (app)=>{
   app.post('/api/insertuser',insertuser);
-  app.get('/api/downloadexcel',downloadexcel);
+  app.post('/api/downloadexcel',downloadexcel);
   app.get('/testwebbot',testwebbot);
   app.get('/testphantom',testphantom);
   //for nginx

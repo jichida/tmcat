@@ -7,7 +7,7 @@ const snapimage= require('../handler/webshot.js');
 const startviews = (app)=>{
   app.get('/', (req, res)=> { res.render('main',{indexurl:`${config.rooturl}/index`}); });
   app.get('/index', (req, res)=> { res.render('index'); });
-  app.get('/download', (req, res)=> { res.render('download'); });
+  app.get('/downloaddata', (req, res)=> { res.render('download'); });
 
   app.get('/infohidden/:id', (req, res)=> {
       const resultid = mongoose.Types.ObjectId(req.params.id);

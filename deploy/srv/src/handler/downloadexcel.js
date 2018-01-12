@@ -4,6 +4,7 @@ const csvwriter = require('csvwriter');
 const config = require('../config.js');
 
 const downloadexcel = (req,res)=>{
+  console.log(req.body);//dpwd
   const userModel = DBModels.UserModel;
   const fields = 'name phone avatar updatetime';
   const query = {};
