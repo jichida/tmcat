@@ -28,8 +28,8 @@ services:
       - /usr/bin:/usr/bin
     network_mode: "host"
     environment:
-      - MONGO_URL=mongodb://tmcatuser:tmcat159@127.0.0.1/tmcat
-      - rooturl=http://magicalcat.codemao.cn
+      - MONGO_URL=mongodb://127.0.0.1/tmcat
+      - rooturl=http://tmcat.czjcd.com
       - listenport=3005
     ports:
        - "3005:3005"
@@ -44,7 +44,3 @@ services:
        - "/var/db100/dbdata:/data/db -d"
     ports:
        - "27017:27017"
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=admin
-      - MONGO_INITDB_ROOT_PASSWORD=15961125167
-    command: mongod --auth
